@@ -22,7 +22,6 @@ public class Seller implements Serializable {
     private String email;
     private Date birthDate;
     private Double baseSalary;
-
     private Department department;
 
 

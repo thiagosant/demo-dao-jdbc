@@ -2,6 +2,7 @@ package com.sansoft.demodaojdbc.application;
 
 import com.sansoft.demodaojdbc.model.dao.DaoFactory;
 import com.sansoft.demodaojdbc.model.dao.SellerDao;
+import com.sansoft.demodaojdbc.model.dao.impl.SellerDaoJDBC;
 import com.sansoft.demodaojdbc.model.entities.Department;
 import com.sansoft.demodaojdbc.model.entities.Seller;
 import org.springframework.boot.SpringApplication;
@@ -36,6 +37,11 @@ public class Program {
         for (Seller obj : list) {
             System.out.println(obj);
         }
+
+        System.out.println("\n=== TEST 4: seller insert ===");
+        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
+        sellerDao.insert(newSeller);
+        System.out.println("Inserted! New id = " + newSeller.getId());
     }
 
 }
