@@ -1,8 +1,8 @@
 package com.sansoft.demodaojdbc.application;
 
+import com.sansoft.demodaojdbc.db.DB;
 import com.sansoft.demodaojdbc.model.dao.DaoFactory;
 import com.sansoft.demodaojdbc.model.dao.SellerDao;
-import com.sansoft.demodaojdbc.model.dao.impl.SellerDaoJDBC;
 import com.sansoft.demodaojdbc.model.entities.Department;
 import com.sansoft.demodaojdbc.model.entities.Seller;
 import org.springframework.boot.SpringApplication;
@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.Scanner;
 
 @SpringBootApplication
-public class Program {
+public class ProgramSeller {
 
     public static void main(String[] args) {
-        SpringApplication.run(Program.class, args);
+        SpringApplication.run(ProgramSeller.class, args);
 
         Scanner input = new Scanner(System.in);
 
@@ -59,6 +59,7 @@ public class Program {
         sellerDao.deleteById(id);
         System.out.println("Delete completed!");
 
+        DB.closeConnection();
         input.close();
     }
 
