@@ -10,12 +10,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 @SpringBootApplication
 public class Program {
 
     public static void main(String[] args) {
         SpringApplication.run(Program.class, args);
+
+        Scanner input = new Scanner(System.in);
 
         SellerDao sellerDao = DaoFactory.createSellerDao();
 
@@ -49,6 +52,14 @@ public class Program {
         seller.setName("Martha Wayne");
         sellerDao.update(seller);
         System.out.println("Update completed!");
+
+        System.out.println("\n=== TEST 6: seller delete ===");
+        System.out.println("Enter id for delete test: ");
+        int id = input.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("Delete completed!");
+
+        input.close();
     }
 
 }
